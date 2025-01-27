@@ -1,5 +1,6 @@
 class Calculator: 
     data = []
+    average = 0
 
     def __init__(self,data):
         self.data = data
@@ -12,3 +13,12 @@ class Calculator:
             if(data['name'] == name):
                 self.data.remove(data)
     
+    def calculate(self):
+        totalScore = 0
+        totalCoefficient = 0
+        for data in self.data: 
+            totalCoefficient += int(data['coefficient'])
+            totalScore += data['score'] * data['coefficient']
+        
+        self.average = totalScore / totalCoefficient
+        return self.average
