@@ -1,6 +1,7 @@
 class Calculator: 
     data = []
     average = 0
+    coefficient = 0
     maxNameLength = 64
     maxScoreLength = 4
     maxCoefficientLength = 2
@@ -25,6 +26,7 @@ class Calculator:
         
         try: 
             self.average = totalScore / totalCoefficient
+            self.coefficient = totalCoefficient
             return self.average
         except: 
             return 0
@@ -36,3 +38,6 @@ class Calculator:
             coefficient = str(data['coefficient']) + (" " * (self.maxCoefficientLength - len(str(data['coefficient']))))
             row = f"{name} {score} {coefficient}\n" + ("_" * (self.maxNameLength + self.maxScoreLength + self.maxCoefficientLength))
             print(row)
+        self.calculate()
+        lastRow = "all" + " " * (self.maxNameLength-3) + f" {self.average} {self.coefficient}"
+        print(lastRow)
