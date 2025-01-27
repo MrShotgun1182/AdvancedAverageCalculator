@@ -20,5 +20,8 @@ class Calculator:
             totalCoefficient += int(data['coefficient'])
             totalScore += data['score'] * data['coefficient']
         
-        self.average = totalScore / totalCoefficient
-        return self.average
+        try: 
+            self.average = totalScore / totalCoefficient
+            return self.average
+        except: 
+            return 0
